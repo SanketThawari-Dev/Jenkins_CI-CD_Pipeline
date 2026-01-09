@@ -1,4 +1,4 @@
-package com.example.employee.controller;
+package com.employee.controller;
 
 import com.example.employee.model.Employee;
 import org.springframework.web.bind.annotation.GetMapping;
