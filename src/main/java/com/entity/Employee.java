@@ -1,4 +1,4 @@
-package com.Entity;
+package com.entity;
 
 public class Employee {
 
