@@ -1,7 +1,9 @@
-<servers>
-  <server>
-    <id>nexus</id>
-    <username>admin</username>
-    <password>password</password>
-  </server>
-</servers>
+<settings>
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>nexus-password</password>
+    </server>
+  </servers>
+</settings>
