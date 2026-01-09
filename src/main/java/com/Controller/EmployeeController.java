@@ -1,6 +1,6 @@
 package com.controller;
 
-import com.example.employee.model.Employee;
+import com.Entity.Employee;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
