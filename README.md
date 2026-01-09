@@ -1,0 +1,11 @@
+# Jenkins_CI-CD_Pipeline
+- This jenkins CI/CD pipeline done for fully automate deployment
+- for that i used in this pipeline
+- git
+- jenkins
+- maven
+- sonarqube
+- nexux repository
+- docker
+- docker hub
+- k8s
