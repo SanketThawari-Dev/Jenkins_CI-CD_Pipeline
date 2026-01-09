@@ -1,0 +1,63 @@
+pipeline {
+  agent any
+
+  tools {
+    maven 'maven'
+  }
+
+  environment {
+    DOCKER_IMAGE = "dockerhubusername/myapp"
+  }
+
+  stages {
+
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/user/my-app.git'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+
+    stage('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('sonarqube') {
+          sh 'mvn sonar:sonar'
+        }
+      }
+    }
+
+    stage('Upload to Nexus') {
+      steps {
+        sh 'mvn deploy'
+      }
+    }
+
+    stage('Docker Build') {
+      steps {
+        sh 'docker build -t $DOCKER_IMAGE:latest .'
+      }
+    }
+
+    stage('Docker Push') {
+      steps {
+        withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'PASS')]) {
+          sh '''
+            echo $PASS | docker login -u dockerhubusername --password-stdin
+            docker push $DOCKER_IMAGE:latest
+          '''
+        }
+      }
+    }
+
+    stage('Deploy to Kubernetes') {
+      steps {
+        sh 'kubectl apply -f k8s/'
+      }
+    }
+  }
+}
