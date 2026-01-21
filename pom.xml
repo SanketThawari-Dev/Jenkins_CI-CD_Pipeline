@@ -45,13 +45,11 @@
     <!-- Nexus Repository -->
     <distributionManagement>
         <repository>
-            <id>nexus</id>
-            <name>Nexus Release Repository</name>
+            <id>maven-releases</id>
             <url>http://3.110.90.226:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshot</id>
-            <name>Nexus snapshot Repository</name>
             <url>http://3.110.90.226:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
