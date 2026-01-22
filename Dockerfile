@@ -1,5 +1,8 @@
 FROM eclipse-temurin:17-jdk
+
 WORKDIR /app
-COPY target/myapp.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+
+COPY target/employee-app-1.0-SNAPSHOT.jar app.jar
+
 EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]
