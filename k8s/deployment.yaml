@@ -1,9 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment #kubernetes resource kind we are creating
 metadata:
   name: java-app
 spec:
-  replicas: 2
+  replicas: 2  #Number of replicas that will be created for this deployment
   selector:
     matchLabels:
       app: java-app
@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: java-app
-        image: dockerhub_user/java-k8s-app:latest
+        image: SanketDocker080/jenkinsPro:latest # Image that will be used to containers in the cluster
+        imagePullPolicy: ifNotPresent
         ports:
-        - containerPort: 8080
+        - containerPort: 8080 # The port that the container is running on in the cluster
