@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 public class EmployeeController {
 
-    @GetMapping("/health")
+    @GetMapping("/")
     public String health() {
         return "Application is running fine!";
     }
